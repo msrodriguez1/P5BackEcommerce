@@ -5,7 +5,12 @@ const cors =require('cors');
 const  bcryptjs  =require( 'bcryptjs');
 const  jwt  =require( 'jsonwebtoken');
 
-app.use(cors())
+
+// Configura CORS para permitir solicitudes desde el dominio de tu frontend en Netlify
+app.use(cors({
+  origin: 'https://funny-belekoy-96a789.netlify.app',
+  methods: ['GET', 'POST'], // Específica los métodos HTTP permitidos
+}));
 
 const Producto =require( './producto.js');
 const Usuario =require('./usuario.js');
